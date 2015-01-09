@@ -1,0 +1,73 @@
+## CODE BOOK run_analysis.R
+## author: Sharon Metzler
+## date: 10/24/2014
+## purpose: Coursework / Getting & Cleaning Data / JHU&Coursera
+# -----------------------------------------------
+
+# INPUT VARIABLES
+1.  561 different measures of physical movement
+    Type: numeric
+    Units: Various. See the features_info.txt & the download README
+    See features.txt for complete listing.
+    Fully described in features_info.txt
+    
+2.  SubjectID
+    Type: char
+    Values: 1-30
+    Description: The idenification number of the participating human subjects
+    
+3.  Exercise
+    Type: char
+    Values: 1-6
+    Description: Number identifying 1 of 6 physical activities performed by the participants
+    Fully described in the README downloaded with the data.
+
+# SOURCE STUDY DESIGN
+The study is completely described in the README file downloaded with the data.
+
+
+# -----------------------------------------------
+# DATA PROCESSING as written in RUN_ANALYSIS.R
+
+# STEP 1: LOAD FEATURE DATA, THESE ARE THE COLUMN NAMES
+# STEP 2: CONVERT FEATURES TO VECTOR & VERIFY THE RESULT
+# STEP 3: LOAD THE TRAINING DATA & TEST DATA INTO SEPARATE TABLES
+# STEP 4: ATTACH COLUMN NAMES & EXAMINE RESULTS
+# STEP 5: LOAD EXERCISE IDENTIFIERS & EXAMINE
+# STEP 6: ADD COLUMN OF EXERCISE IDS FROM THE YDATA
+#         EXAMINE VALUE DISTRIBUTION OF EXERCISE VALUES
+# STEP 7: REPLACE EXERCISE IDS WITH DESCRIPTIVE TEXT FOR BOTH TEST & TRAIN DATA
+#         EXAMINE RESULTS
+# STEP 8: LOAD SUBJECT ID DATA
+#         THESE ARE THE NUMERIC IDENTIFIERS OF THE PARTICIPANTS, 1-30
+#         ADD COLUMN OF SUBJECT ID TO XTRAIN
+# STEP 9: CREATE VECTORS OF FIELDS TO KEEP
+#         MANAGE OBJECTS IN MEMORY
+# STEP 10: REDUCE COLUMNS TO MEAN, STD, EXERCISE & SUBJECTID
+#         AND VERIFY RESULTS
+# STEP 11: CLEAN THE COLUMN NAMES, REMOVE NON-R COMPLIANT CHARACTERS
+# STEP 12: COMBINE XTRAIN & XTEST, THEN EXAMINE
+#         PREFIX SUBJECTID FIELD WITH CHARACTER
+# STEP 13: RESHAPE MERGED
+#         MANAGE OBJECTS IN MEMORY
+# STEP: 14 OUTPUT AS TEXT FILE
+
+
+# -----------------------------------------------
+# OUTPUT VARIABLES
+1.  SubjectID
+    Type: char
+    Values: 1-30
+    Description: The idenification number of the participating human subjects
+    
+2.  Exercise
+    Type: char
+    Values: 1-6
+    Description: Number identifying 1 of 6 physical activities performed by the participants
+    Fully described in the README downloaded with the data.
+    
+3.  Mean
+    Type: numeric, float
+    Description: The computed mean value of the MEAN and STD measurements from the
+    original datasets, as summarized into 1 record per Subject+Exercise combination. 
+    Units: None. 
