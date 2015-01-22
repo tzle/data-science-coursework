@@ -17,8 +17,5 @@ axis(side=1,at=the_label_vec,labels=the_label_vec)
 
 # STEP 4: output results to graphics device
 dev.copy(png,file="question1.png",width=480,height=480)
-<<<<<<< HEAD
 dev.off()
-=======
-dev.off()
->>>>>>> origin/master
+
