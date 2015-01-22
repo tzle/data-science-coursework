@@ -9,7 +9,7 @@ SCC <- readRDS("Source_Classification_Code.rds")
 the_aggregated_data <- with(NEI, aggregate(Emissions,by=list(year),sum))
 
 # STEP 2: Plot the data
-plot(the_aggregated_data, type="o", xlab="Year",ylab=expression("Total in PPM"[2.5]),main="US Emissions per Year")
+plot(the_aggregated_data, type="o", xlab="Year",ylab=expression("Total in PPM"[2.5]),main="US Emissions per Year",bg=1)
 
 # STEP 3: Edit the plot
 the_label_vec <- c(1999,2000,2001,2002,2003,2004,2005,2006,2007,2008)
