@@ -18,8 +18,7 @@ colnames(FIPS24510_annual_emissions) <- c("Year", "Emissions")
 plot(FIPS24510_annual_emissions, type = "o", xlab = "Year", ylab = expression("Total in PM"[2.5]), main = "Baltimore City Emissions", xlim = c(1999,2008))
 
 
-# STEP 3: Edit the plot
- for readability
+# STEP 3: Edit the plot for readability
 the_label_vec <- c(1999,2000,2001,2002,2003,2004,2005,2006,2007,2008)
 
 axis(side=1,at=the_label_vec,labels=the_label_vec)
