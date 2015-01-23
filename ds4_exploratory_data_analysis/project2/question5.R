@@ -14,7 +14,7 @@ NEI_motor <- NEI[NEI$SCC %in% SCC_ids,]
 NEI_motor_fips <- NEI_motor[which(NEI_motor$fips=="24510"),]
 
 
-# STEP 3: 
+# STEP 3: aggregate & plot
 agg_NEI_motor_fips <- with(NEI_motor_fips, aggregate(Emissions,by=list(year),sum))
 plot(agg_NEI_motor_fips, type="o",xlab="Year",ylab=expression("Total Emissions,PM"[2.5]),main="Baltimore Motor Emissions",xlim=c(1999,2008))
 
