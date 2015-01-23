@@ -5,17 +5,23 @@ SCC <- readRDS("Source_Classification_Code.rds")
 # combustion-related sources changed from 1999–2008? 
 
 
-library(plyr)
-# STEP 1: extract records by FIPS# & aggregate emissions 
-type_of_pollutant <- with(NEI[which(NEI$fips=="24510"),], aggregate(Emissions, by=list(year,type),sum))
+#library(plyr)
+# STEP 1: extract "coal combustion-related sources", multiple grep()
+# subset dataframe based on " coal" in Short.Name field
+subcoal_df <- SCC[grepl(" coal",SCC$Short.Name,ignore.case=TRUE)==TRUE,]
+# subset the coal subset dataframe based on "combustion" in Short.Name field
+subcoalcomb_df <- subcoal_df[grepl("combustion",subcoal_df$Short.Name,ignore.case=TRUE)==TRUE,]
+# collect list of SCC identifiers from the "coal combustion-related" records
+SCC_ids <- as.character(subcoalcomb_df$SCC)
+NEI$SCC <- as.character(NEI$SCC)
 
-# STEP 2: name the columns in order to plot
-colnames(type_of_pollutant) <- c("Year","Type","Emissions")
+# identify coal comb emissions in NEI based on SCC queries
+NEI_coalcomb <- NEI[NEI$SCC %in% SCC_ids,]
 
-
-# STEP 4: plot the data
-qplot(Year, EmissionsPPM, data=type_of_pollutant, group=Type, color=Type, geom=c("point","line"),xlab="Year", ylab=expression("Total Emissions PPM"[2.5]),main="Baltimore City Emissions by Type & Year")
+# aggregate variables for plotting
+agg_coalcomb <- with(NEI_coalcomb, aggregate(Emissions, by=list(year),sum))
+colnames(agg_coalcomb) <- c("Year","Emissions")
 
 # STEP 5: output results to graphics device
-dev.copy(png,file="plot_question_3.png", width=480, height=480)
+dev.copy(png,file="plot_question_4.png", width=480, height=480)
 dev.off()
