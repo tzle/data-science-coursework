@@ -27,6 +27,7 @@ agg_NEI_motor_los$Location <- "Los Angeles County"
 
 NEI_motor_balt_los <- rbind(agg_NEI_motor_balt, agg_NEI_motor_los)
 
+library(ggplot2)
 qplot(Year,Emissions, data=NEI_motor_balt_los, group=Location, color=Location, geom=c("point","line"), xlab="Year",ylab=expression("Total Emissions, PM"[2.5]),main="Comparing Emissions, Baltimore City & Los Angeles County")
 
 dev.copy(png,file="plot_question6.png",width=480,height=480)
