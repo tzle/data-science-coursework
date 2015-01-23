@@ -17,6 +17,7 @@ NEI_motor_fips <- NEI_motor[which(NEI_motor$fips=="24510"),]
 # STEP 3: 
 agg_NEI_motor_fips <- with(NEI_motor_fips, aggregate(Emissions,by=list(year),sum))
 plot(agg_NEI_motor_fips, type="o",xlab="Year",ylab=expression("Total Emissions,PM"[2.5]),main="Baltimore Motor Emissions",xlim=c(1999,2008))
+
 # STEP 4: Edit the plot for readability
 the_label_vec <- c(1999,2000,2001,2002,2003,2004,2005,2006,2007,2008)
 axis(side=1,at=the_label_vec,labels=the_label_vec)
